@@ -2,31 +2,58 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<!--Site Meta-->
+<meta name="author" content="Liavontsi Brechka">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:url" content="{{ site.url }}">
+
+<!--Image Preview-->
+{% if page.previewurl %}
+	<meta property="og:image" content="{{page.previewurl | prepend: page.imgpath | prepend: site.baseurl | prepend: site.url}}">
+	<meta name="twitter:image" content="{{page.previewurl | prepend: page.imgpath | prepend: site.baseurl | prepend: site.url}}">
+{% else %}
+	<!--TODO: define preview image-->
+	<meta property="og:image" content="">
+	<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="600" />
+	<meta name="twitter:image" content="">
+{% endif %}
+<meta name="twitter:image:alt" content="{{ site.author_name }}">
+
+<!--Title-->
 {% if page.title %}
 	<title>{{ page.title }} · {{ site.title }}</title>
+	<meta property="og:title" content="{{ page.title }} · {{ site.title }}">
+	<meta name="twitter:title" content="{{ page.title }} · {{ site.title }}">
 {% else %}
 	<title>{{ site.title }}</title>
+	<meta property="og:title" content="{{ site.title }}">
+	<meta name="twitter:title" content="{{ site.title }}">
 {% endif %}
 
+<!--Description-->
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-<link rel="icon" href="{{ "/assets/favicon.png" | prepend: site.baseurl | prepend: site.url }}">
-<link rel="apple-touch-icon" href="{{ "/assets/touch-icon.png" | prepend: site.baseurl | prepend: site.url }}">
-<link rel="stylesheet" href="{{ "/assets/core.css" | prepend: site.baseurl | prepend: site.url }}">
+<!--Icon-->
+<link rel="icon" href="{{ "/assets/img/favicon.png" | prepend: site.baseurl | prepend: site.url }}">
+<link rel="apple-touch-icon" href="{{ "/assets/img/favicon.png" | prepend: site.baseurl | prepend: site.url }}">
+
+<!--Styles-->
+<link rel="stylesheet" href="{{ "/assets/css/core.css" | prepend: site.baseurl | prepend: site.url }}">
+
+<!--Other-->
 <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 
+<!--Other Libs-->
 {% if site.mathjax %}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	{% unless page.url == '/index.html' or page.url == '/' %}
+		<script src="/assets/js/load-mathjax.js" async></script>
+	{% endunless %}
 {% endif %}
 
-{% if site.social_share_previews %}
-	<meta property="og:title" content="{{ site.title }}">
-	<meta property="og:description" content="{{ site.description }}">
-	<meta property="og:image" content="{{ site.logo_url }}">
-	<meta property="og:url" content="{{ site.url }}">
-	<meta name="twitter:card" content="summary_large_image">
-
-	<meta property="og:site_name" content="{{ site.title }}">
-	<meta name="twitter:image:alt" content="{{ site.author_name }}">
-{% endif %}
+<!--Other Social Network Meta-->
+<!--TODO: setup twitter-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="">
