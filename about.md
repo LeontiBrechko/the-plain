@@ -11,6 +11,4 @@ As of 2022, I'm a Software Engineer at AWS developing [Step Functions](https://a
 
 In this blog, I'll share the best practices I learned in a concise way.
 
-I strive to make this blog to be alive for more than 3 months and have more than 3 articles😅 
-
-Feel free to leave you comments/questions/concerns using social platforms linked below
+I strive to make this blog to be alive for more than 3 months and have more than 3 articles😅
