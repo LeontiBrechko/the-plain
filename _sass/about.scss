@@ -1,0 +1,43 @@
+@import "palette";
+
+// Content
+.content {
+  text-align: center;
+}
+
+// Social
+.social-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+
+  a {
+    border-bottom: none;
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  //background: rgba($regular-text, 0.60);
+  border-radius: 25px;
+
+  padding: 10px;
+}
+
+.social img {
+  display: block;
+  width: 40px;
+  transition: transform .2s;
+  margin: 10px;
+}
+
+.social img:hover {
+  transform: scale(1.3);
+}

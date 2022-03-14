@@ -41,6 +41,9 @@
 
 <!--Styles-->
 <link rel="stylesheet" href="{{ "/assets/css/core.css" | prepend: site.baseurl | prepend: site.url }}">
+{% if page.name == 'about.md' %}
+	<link rel="stylesheet" href="{{ "/assets/css/about.css" | prepend: site.baseurl | prepend: site.url }}">
+{% endif %}
 
 <!--Other-->
 <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
